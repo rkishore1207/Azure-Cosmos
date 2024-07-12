@@ -1,3 +1,4 @@
+using AzureCosmosBlazorApp.Data;
 using BlazorCosmosApp.Components;
 
 namespace BlazorCosmosApp
@@ -11,6 +12,7 @@ namespace BlazorCosmosApp
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
+            builder.Services.AddScoped<IEngineerService, EngineerService>();
 
             var app = builder.Build();
 

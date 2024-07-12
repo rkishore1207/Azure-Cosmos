@@ -1,0 +1,73 @@
+﻿@page "/engineer"
+@using AzureCosmosBlazorApp.Data
+@inject IEngineerService EngineerService
+@inject NavigationManager NavManager
+@rendermode InteractiveServer
+
+<PageTitle>Engineer</PageTitle>
+
+<h1>Engineer</h1>
+
+<p>New Engineer should be Registered here..</p>
+
+<button class="btn btn-primary" @onclick="@(async () => await UpsertEngineer(Guid.Empty))"> Register </button>
+
+@if (AllEngineers == null)
+{
+    <p><em>No Engineers were Registered</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Speciality</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var engineer in AllEngineers)
+            {
+                <tr>
+                    <td>@engineer.Name</td>
+                    <td>@engineer.Country</td>
+                    <td>@engineer.Speciality</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="@(async () => await UpsertEngineer(engineer.id))"> Edit </button>
+                    </td>
+                    <td class="btn btn-danger">
+                        <button class="btn btn-danger" @onclick="@(async () => await DeleteEngineer(engineer.id))"> Delete </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<EngineerModel> AllEngineers { get; set; } = new List<EngineerModel>();
+    private Guid? CurrentEngineer { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        AllEngineers = new List<EngineerModel>();
+        var engineers = await EngineerService.GetAllEngineers();
+        foreach (var engineer in engineers)
+            AllEngineers.Add(engineer);
+    }
+
+    private async Task UpsertEngineer(Guid? engineerID)
+    {
+        NavManager.NavigateTo($"./new/{engineerID.ToString()}");
+        await Task.CompletedTask;
+    }
+
+    private async Task DeleteEngineer(Guid? id)
+    {
+        await EngineerService.DeleteEngineer(id.ToString(), id.ToString());
+        await OnInitializedAsync();
+    }
+}
