@@ -1,0 +1,59 @@
+﻿@using AzureCosmosBlazorApp.Data
+@inject IEngineerService EngineerService
+@inject NavigationManager NavManager
+@page "/new/{engineerID}"
+@rendermode InteractiveServer
+
+<PageTitle>UpsertEngineer</PageTitle>
+
+<h1>UpsertEngineer</h1>
+
+<div class="row flex-column justify-content-center align-items-center">
+    <div class="row">
+        <div class="col-4">
+            <p>Engineer Name </p>
+        </div>
+        <div class="col-8">
+            <input type="text" class="form-control" placeholder="Name" @bind-value="Engineer.Name" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <p>Engineer Country </p>
+        </div>
+        <div class="col-8">
+            <input type="text" class="form-control" placeholder="Name" @bind-value="Engineer.Country" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <p>Engineer Speciality </p>
+        </div>
+        <div class="col-8">
+            <input type="text" class="form-control" placeholder="Name" @bind-value="Engineer.Speciality" />
+        </div>
+    </div>
+
+    <button class="btn btn-primary" @onclick="@(async () => await SaveUpsertEngineer())">Save</button>
+</div>
+
+@code {
+
+    [Parameter]
+    public string? engineerID { get; set; }
+    private EngineerModel Engineer { get; set; } = new EngineerModel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (new Guid(engineerID) != Guid.Empty)
+            Engineer = await EngineerService.GetEngineerById(engineerID, engineerID);
+    }
+
+    private async Task SaveUpsertEngineer()
+    {
+        await EngineerService.UpsertEngineer(Engineer);
+        NavManager.NavigateTo("./engineer");
+    }
+}
