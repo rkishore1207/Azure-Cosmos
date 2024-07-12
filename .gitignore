@@ -1,0 +1,165 @@
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+*.vs/*
+
+BlazorCosmosApp/.vs/BlazorCosmosApp/DesignTimeBuild/.dtbcache.v2
+BlazorCosmosApp/.vs/BlazorCosmosApp/FileContentIndex/afc67004-4842-4bc4-a81f-f9b6ab0ed812.vsidx
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# Auto-generated files
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*_h.h
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pdb
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio 2019 config folder
+.vs2019/
+.vscode/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+*.code-workspace
+
+# Rider directories
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DotNetZip
+_._*
+
+# Windows Update
+wuauserv.log
+
+# Windows error reports
+hs_err_pid*.log
+
+# IIS Logs
+[Ii][Nn][Ee]t[Ss][Rr][Vv]/
+
+# Azure Web App deployment logs
+.git/azure/
+
+# Azure
+*.publishsettings
+# WCF
+*svcinfo.xml
+*.svcinfo
+
+# Mobile Tooling
+_DeployiOS/
+_DeployAndroid/
+_Deploy/
+
+# Office
+~$*
+*.ldf
+*.mdf
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+
+# Roslyn
+*.sln.ide/
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# JetBrains Rider
+.idea/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Auto-generated files
+*.vspscc
+*.vssscc
+*.dbmdl
+*.jfm
+*.pdb
+
+# Build results
+bin/
+obj/
+
+# Enable "Build on Save" feature for Visual Studio Code
+.vscode/
+**/*.csproj.user
+
+# Ignore temporary files
+tmp/
+temp/
+
+# EntityFramework
+*.edmx.diagram
+*.edmx
+
+# End of the .gitignore file
